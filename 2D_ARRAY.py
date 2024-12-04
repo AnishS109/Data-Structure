@@ -189,3 +189,30 @@
 
 #___________________________________________________________________________________________________
 
+
+# ROW WITH MAX 1s:
+
+# def row(arr):
+#   n = len(arr)
+#   m = len(arr[0])
+#   a = []
+
+#   for i in range(n):
+#     low = 0
+#     high = m-1
+#     count = 0
+              
+#     while low<=high:
+#       mid = (low+high) // 2
+                   
+#       if arr[i][mid] == 1:
+#         high = mid-1
+#       else:
+#         low = mid+1
+
+#     count = m-low
+#     a.append(count)
+
+#   return a.index(max(a))
+
+# print(row([[0,1,1,1], [0,0,1,1], [1,1,1,1], [0,0,0,0]]))

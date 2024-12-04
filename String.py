@@ -78,24 +78,24 @@
 
 # CHECH TWO STRINGS ARE ANAGRAM OR NOT:
 
-def check_anagram(str1,str2):
-  str1L = str1.lower()
-  str2L = str2.lower()
-  n = len(str1L)
-  N = len(str2L)
-  count = 0
+# def check_anagram(str1,str2):
+#   str1L = str1.lower()
+#   str2L = str2.lower()
+#   n = len(str1L)
+#   N = len(str2L)
+#   count = 0
 
-  for i in range(n):
-    for j in range(N):
-      if str1L[i] == str2L[j]:
-        count += 1
+#   for i in range(n):
+#     for j in range(N):
+#       if str1L[i] == str2L[j]:
+#         count += 1
 
-  if count == N and n==N:
-    return True
-  else:
-    return False
+#   if count == N and n==N:
+#     return True
+#   else:
+#     return False
   
-print(check_anagram("eat","tea"))
+# print(check_anagram("eat","tea"))
 
 
 #___________________________________________________________________________________________________
@@ -321,49 +321,73 @@ print(check_anagram("eat","tea"))
 
 # REVERSE AN INTEGER::
 
-def revNum (arr):
-  a = str(arr)
-  n = len(a)
-  b = "-"
-  c = ""
-  count = 0
-  res = 0
+# def revNum (arr):
+#   a = str(arr)
+#   n = len(a)
+#   b = "-"
+#   c = ""
+#   count = 0
+#   res = 0
         
-  for i in range(n-1,-1,-1):
-    c = c + a[i]
+#   for i in range(n-1,-1,-1):
+#     c = c + a[i]
 
-  if n == 1:
-    return int(a)
+#   if n == 1:
+#     return int(a)
 
-  elif a[0] == "-" and c[0] == "0":
-    for i in range(n):
-      if c[i] == '0':
-        count+=1
-      if c[i]!="0":
-        break
+#   elif a[0] == "-" and c[0] == "0":
+#     for i in range(n):
+#       if c[i] == '0':
+#         count+=1
+#       if c[i]!="0":
+#         break
 
-    res = int(b+c[count:n-1])
+#     res = int(b+c[count:n-1])
 
-  elif c[0] == "0":
-    for i in range(n):
-      if c[i] == '0':
-        count+=1
+#   elif c[0] == "0":
+#     for i in range(n):
+#       if c[i] == '0':
+#         count+=1
 
-      if c[i]!="0":
-        break
-    res = int(c[count:n])
+#       if c[i]!="0":
+#         break
+#     res = int(c[count:n])
 
-  elif a[0] == "-":
+#   elif a[0] == "-":
 
-    res = int(b+c[:n-1])
+#     res = int(b+c[:n-1])
 
-  else:
-    res = int(c)
+#   else:
+#     res = int(c)
 
-  if res<=2147483647 and res>=-2147483648:
-    return res
-  else:
-    return 0
+#   if res<=2147483647 and res>=-2147483648:
+#     return res
+#   else:
+#     return 0
 
-print(revNum(7000000002))
+# print(revNum(7000000002))
+
+
+#___________________________________________________________________________
+
+
+# LONGEST SUBSTRING WITHOUT REPEATING CHARACTERS:
+
+# def longest(s):
+#   n = len(s)
+#   max_len = 0
+
+#   for i in range(n):
+#     str2 = []
+#     for j in range(i,n):
+#       if s[j] in str2:
+#         break
+#       else:
+#         str2.append(s[j])
+    
+#     max_len = max(max_len,len(str2))
   
+#   return max_len
+
+# print(longest("pwwkew"))
+
