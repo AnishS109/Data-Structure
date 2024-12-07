@@ -620,21 +620,25 @@
 
 # MEDIAN OF TWO SORTED ARRAY:
 
-def median(arr1,arr2):
-  arr = sorted(arr1+arr2)
-  # arr3 = sorted(arr)
-  n = len(arr)
-  low = 0
-  high = n-1
+# def median(arr1,arr2):
+#   arr = sorted(arr1+arr2)
+#   # arr3 = sorted(arr)
+#   n = len(arr)
+#   low = 0
+#   high = n-1
 
-  mid = (low+high)//2
+#   mid = (low+high)//2
 
-  if n%2!=0:
-    ans = arr[mid]
+#   if n%2!=0:
+#     ans = arr[mid]
 
-  else:
-    ans = (arr[mid]+arr3[mid+1])/2
+#   else:
+#     ans = (arr[mid]+arr3[mid+1])/2
 
-  return ans
+#   return ans
 
-print(median([1,3],[2]))
+# print(median([1,3],[2]))
+
+
+#___________________________________________________________________________
+
