@@ -535,3 +535,102 @@
 
 #___________________________________________________________________________
 
+
+# MAXIMUM NUMBER OF INTEGERS TO CHOOSE FROM A RANGE I:
+
+# def maxCount(banned,a,maxSum):
+#   banned_set = set(banned)
+#   count = 0
+#   Sum = 0
+
+#   for i in range(1,a+1):
+
+#     if i not in banned_set and Sum + i <= maxSum:
+#       Sum += i
+#       count += 1
+
+#   return count
+
+# print(maxCount([1,5,6],5,6))
+
+
+#___________________________________________________________________________
+
+
+# NEXT PERMUTAION:
+
+# def next(arr):
+#   n = len(arr)
+#   indexx = -1
+
+#   for i in range(n-2,-1,-1):
+#     if arr[i]<arr[i+1]:
+#       indexx = i
+#       break
+
+#   if indexx == -1:
+#     arr.reverse()
+#     return arr
+
+#   for i in range(n-1,indexx,-1):
+#     if arr[i]>arr[indexx]:
+#       arr[i],arr[indexx] = arr[indexx],arr[i]
+#       break
+
+#   arr[indexx + 1:] = reversed(arr[indexx + 1:])
+#   return arr
+
+# print(next([1,2,3,4,5]))
+
+
+#___________________________________________________________________________
+
+
+# REARRANGE ARRAY ELEMENTS BY SIGN:
+
+# def reArrange(arr):
+#   n = len(arr)
+#   a = [0] * n
+#   posi = 0
+#   negi = 1
+
+#   for i in arr:
+
+#     if i>0:
+#       a[posi] = i
+#       posi+=2
+
+#     else:
+#       a[negi] = i
+#       negi+=2
+
+#   return a
+
+# print(reArrange([1,2,3,-1,-2,-3]))
+
+
+#___________________________________________________________________________
+
+
+# FIND SUB_ARRAY WITH LARGEST SUM:
+
+# def maxSubArray(arr):
+#   n = len(arr)
+#   maxSum = float('-inf')
+#   Sum = 0
+
+#   if (n == 1):
+#     return arr[0]
+  
+#   for i in range(n):
+#     Sum += arr[i]
+
+#     if Sum>maxSum:
+#       maxSum = Sum
+
+#     if Sum<0:
+#       Sum = 0
+
+#   return maxSum
+
+# print(maxSubArray([5,4,-1,7,8]))
