@@ -634,3 +634,39 @@
 #   return maxSum
 
 # print(maxSubArray([5,4,-1,7,8]))
+
+
+# ________________________________________________________________________
+
+
+# SORT COLORS
+
+def sortColors(nums):
+  n = len(nums)
+  arr = []
+  zero = 0
+  one = 0
+  two = 0
+
+  for i in nums:
+      if i == 0:
+          zero += 1
+      elif i == 1:
+          one += 1
+      else:
+          two += 1
+
+  for i in range(n):
+      if zero>0:
+          arr.append(0)
+          zero -= 1
+      elif one>0:
+          arr.append(1)
+          one -= 1
+      else:
+          arr.append(2)
+          two -= 1
+  
+  return arr
+
+print(sortColors([2,0,2,1,1,0]))
