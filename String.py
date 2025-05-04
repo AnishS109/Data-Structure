@@ -391,3 +391,65 @@
 
 # print(longest("pwwkew"))
 
+
+# -------------------------- ROMAN TO INTEGER ----------------------------
+
+
+def roman( s):
+    n = len(s)
+    ans = {"I":1,"V":5,"X":10,"L":50,"C":100,"D":500,"M":1000}
+    out = 0
+    i = n-1
+
+    while i>0:
+        if ans[s[i]] > ans[s[i-1]]:
+            out += ans[s[i]] - ans[s[i-1]]
+            i-=2
+        else:
+            out += ans[s[i]]
+            i-=1
+
+    out+=ans[s[0]]
+
+    return out
+
+# ------------------------ BEAUTY SUM -------------------------
+
+def beautySum( s):
+    """
+    :type s: str
+    :rtype: int
+    """
+    n = len(s)
+
+    for i in range(n):
+        ans = {}
+        for j in range(i,n):
+            if s[i] in ans:
+                ans[s[i]] += 1
+            else:
+                ans[s[i]] = 1
+
+            maxi = max(ans.values())
+            mini = min(ans.values())
+            total += maxi - mini
+
+    return total
+
+# --------------------------- REVERSE WORDS ------------------------------
+
+def reverseWords( s):
+    """
+    :type s: str
+    :rtype: str
+    """
+    strr = s.split()
+    n = len(strr)
+    ans = []
+
+    for i in range(n):
+        ans.append(strr[n-1-i])
+
+    return " ".join(ans)
+
+print(reverseWords("the sky is blue"))

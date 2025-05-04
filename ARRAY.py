@@ -669,4 +669,19 @@ def sortColors(nums):
   
   return arr
 
-print(sortColors([2,0,2,1,1,0]))
+# ------------------------------- LONGEST COMMONN PREFIX ------------------------------
+
+def longestCommonPrefix(strs):
+    strs.sort()
+    print(strs)
+    str1 = strs[0]
+    str2 = strs[len(strs) - 1]
+    n = len(str1)
+    ans = ""
+
+    for i in range(n):
+        if str1[i] == str2[i]:
+            ans = ans + str1[i]
+    return ans
+
+print(longestCommonPrefix(["dog","racecar","car"]))
