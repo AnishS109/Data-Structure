@@ -684,4 +684,6 @@ def longestCommonPrefix(strs):
             ans = ans + str1[i]
     return ans
 
-print(longestCommonPrefix(["dog","racecar","car"]))
+# print(longestCommonPrefix(["dog","racecar","car"]))
+
+
