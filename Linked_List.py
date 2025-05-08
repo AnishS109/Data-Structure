@@ -262,6 +262,7 @@ def detectNode(head):
 
 
 def optimizeDetectNode(head):
+
     slow = fast = head
     
     while fast and fast.next:
@@ -282,6 +283,7 @@ def optimizeDetectNode(head):
 
 
 # ------------------------ CHECK GIVE LINKED LIST IS PALINDROME OR NOT -------------------------
+
 
 def isPalindrome(head):
     arr = []
@@ -399,4 +401,132 @@ def intersection(headA,headB):
 # --------------------------------- SORT THE LINKED LIST ----------------------------------
 
 
-# def sortLinkedList(head):
+def sortLinkedList_Bubble_Sort(head):
+    i = head
+
+    while i:
+        j = i.next
+
+        while j:
+            if i.data > j.data:
+                i.data,j.data = j.data,i.data
+            else:
+                j = j.next
+
+        i = i.next
+
+    return 
+
+
+# --------------------------------- ADD ONE TO LINKED LIST VALUE --------------------------
+
+
+def addOne(head):
+    curr = head
+    num_str = ""
+
+    while curr:
+        num_str += str(curr.data)
+        curr = curr.next
+
+    num = int(num_str) + 2
+    new_str = str(num)
+
+    new_head = Node(int(new_str[0]))
+    curr = new_head
+
+    for i in range(1,len(new_str)):
+        curr.next = Node(int(new_str[i]))
+        curr = curr.next
+
+    return new_head
+
+
+# ---------------------------------- ROTATE A LINKED LIST -------------------------
+
+
+def rotate(head,k):
+    if not head or not head.next or k==0:
+        return head
+    
+    arr = []
+    curr = head
+
+    while curr:
+        arr.append(curr.data)
+        curr = curr.next    
+
+    n = len(arr)
+    temp = [None] * n
+
+    for i in range(n):
+        temp[(i+k)%n] = arr[i]
+
+    newhead = Node(temp[0])
+    curr = newhead
+
+    for i in range(1,n):
+        curr.next = Node(temp[i])
+        curr = curr.next
+
+    return newhead
+
+
+def optmizedRotate(head,k):
+    tail = None
+    n = 0
+    curr = head
+
+    while curr:
+        n += 1
+        tail = curr
+        curr = curr.next
+
+    k = k%n
+
+    if k%n == 0:
+        return head
+    else:
+        tail.next = head
+        newLastNodeSteps = n-k
+        newTail = head
+
+        while newLastNodeSteps != 0:
+            newLastNodeSteps -= 1
+
+            if newLastNodeSteps == 0:
+                head = newTail.next
+                newTail.next = None
+                break
+            newTail = newTail.next
+
+    return head
+
+
+# ------------------------------------ REVERSED LINKED LIST NODES AFTER K INTERVALS --------------------------
+
+
+def reverseNode(head,k):
+    arr = []
+    curr = head
+
+    while curr:
+        arr.append(curr.data)
+        curr = curr.next
+
+    n = len(arr)
+
+    for i in range(0,n,k):
+        if i + k <= n:
+            arr[i:i+k] = reversed(arr[i:i+k])
+
+    newHead = Node(arr[0])
+    curr = newHead
+
+    for i in range(n):
+        curr.next = Node(arr[i])
+        curr = curr.next
+
+    return newHead
+
+

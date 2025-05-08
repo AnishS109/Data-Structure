@@ -686,4 +686,4 @@ def longestCommonPrefix(strs):
 
 # print(longestCommonPrefix(["dog","racecar","car"]))
 
-
+print(2%5)
