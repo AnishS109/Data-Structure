@@ -141,3 +141,51 @@ def reverse(head):
 
 # ------------------------------------ DELETE ALL OCCURRENCE OF THE GIVE ELEMENT "K" ----------------------------------
 
+
+def deleteAllOccurrences(head, target):
+    curr = head
+    while curr :
+        if curr.val == target:
+            if curr.prev is None:
+                head = curr.next
+                if curr.next:
+                    curr.next.prev = None
+            elif curr.next is None:
+                curr.prev.next = None
+                curr.prev = None
+            else:
+                curr.prev.next = curr.next
+                curr.next.prev = curr.prev
+                curr.next = None
+                curr.prev = None
+        
+        curr = curr.next
+
+    return head
+
+
+# ----------------------------------- REMOVE DUPLICATES FROM SORTED DOUBLY LINKED LIST ------------------------------------
+
+
+def removeDuplicated(head):
+    curr = head
+    while curr and curr.next:
+        if curr.data == curr.next.data:
+            nextt = curr.next
+
+            if nextt.next:
+                curr.next = nextt.next
+                nextt.next.prev = curr
+                nextt.next = None
+                nextt.prev = None
+            else:
+                curr.next.prev = None
+                curr.next = None
+
+
+        else:
+            curr = curr.next
+
+    return head
+
+
