@@ -450,3 +450,135 @@ def check_palindrome(s,i):
             return False
         return check_palindrome(s,i+1)
 
+
+# --------------------------- CONVERT STRING INTO INTEGER ----------------------------
+
+
+def string_to_int(s):
+    i = 0
+    strr = s.strip()
+    ans = ""
+    n = len(strr)
+
+    if i<n and (strr[i] == "-" or strr[i] == "+"):
+        ans += strr[i]
+        i += 1
+
+    def helper(i, ans):
+        if i == n or not strr[i].isdigit():
+            return ans
+        ans += strr[i]
+        return helper(i+1,ans)
+    
+    ans = helper(i,ans)
+
+    num = int(ans)
+    mini = -2**31
+    maxi = 2**31 - 1
+
+    if num>maxi:
+        return maxi
+    elif num<mini:
+        return mini
+    
+    return num
+
+
+# ----------------------------- POWER of X,N ---------------------------------
+
+
+def myPow(x,n):
+    if n == 0:
+        return 1
+    if n<0:
+        return 1 / myPow(x,-n)
+    half = myPow(x,n//2)
+
+    if n % 2 == 0:
+        return half * half
+    else:
+        return half * half * x
+    
+
+# ------------------------------- RETURN NUMBER OF GOOD NUMBERS --------------------------------
+
+# BRUTE FORCE :
+def count_good(n):
+
+    def powers(base,x,mod):
+        if x == 0:
+            return 1
+        else:
+            return (base * powers(base,x-1,mod)) % mod
+
+    MOD = 10 ** 9 + 7
+    even_pos = (n+1) // 2
+    odd_pos = n // 2
+    even_ans = powers(5,even_pos,MOD)
+    odd_ans = powers(4,odd_pos,MOD)
+    return (even_ans * odd_ans) % MOD
+
+
+# OPTIMIZE :
+def count_good_optmized(n):
+    def powers(base,x,mod):
+        if x == 0:
+            return 1
+        half = powers(base,x//2,mod)
+        result = (half * half) % mod
+        if x % 2 == 1:
+            result = (result * base) % mod
+        return result
+    
+    MOD = 10**9 + 7
+    even_pos = (n+1) // 2
+    odd_pos = n//2
+    even_ans = powers(5,even_pos,MOD)
+    odd_ans = powers(4,odd_pos,MOD)
+    return (even_ans * odd_ans) % MOD
+
+
+# -------------------------------- GENERATE PARANNTHESIS ------------------------------------
+
+
+def generate_paren(n):
+
+    def backTrack(s,ans,open_count,close_count):
+        if len(s) == n*2:
+            ans.append(s)
+            return
+        if open_count < n:
+            backTrack(s + "(",ans,open_count + 1,close_count)
+        if close_count < open_count:
+            backTrack(s + ")", ans, open_count, close_count + 1)
+        
+    ans = []
+    open_count = 0
+    close_count = 0
+    backTrack("",ans,open_count,close_count)
+    return ans
+
+
+# ------------------------------- PRINT ALL SUBSEQUENCE ------------------------------
+
+
+def all_sub(arr):
+
+    def backTrack(arr,ans,i,output):
+        if i >= len(arr):
+            ans.append(output[:])
+            return
+        
+        # exclude
+        backTrack(arr,ans,i+1,output)
+
+        # include
+        output.append(arr[i])
+        backTrack(arr,ans,i+1,output)
+        output.pop()
+
+    ans = []
+    i = 0
+    output = []
+    backTrack(arr,ans,i,output)
+    return ans
